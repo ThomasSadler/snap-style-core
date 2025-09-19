@@ -151,14 +151,14 @@ const Index = () => {
         images={heroImages}
       />
 
-      <main className="container mx-auto px-4 py-12 space-y-16">
+      <main className="container mx-auto px-4 py-16 space-y-20">
         {/* Watch List Section */}
         <section>
           <SectionHeader 
             title="From your watch list"
             subtitle="You liked this →"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="product-grid">
             {watchListProducts.map((product, index) => (
               <ProductCard key={index} {...product} />
             ))}
@@ -170,7 +170,7 @@ const Index = () => {
           <SectionHeader 
             title="From Your Feed"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+          <div className="product-grid-lg">
             {feedProducts.map((product, index) => (
               <ProductCard key={index} {...product} />
             ))}
@@ -182,7 +182,7 @@ const Index = () => {
           <SectionHeader 
             title="The Top Stories"
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {stories.map((story, index) => (
               <StoryCard key={index} {...story} />
             ))}
@@ -195,7 +195,7 @@ const Index = () => {
             title="Your recent searches"
             showSeeMore={false}
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
             {recentSearches.map((search, index) => (
               <SearchResultCard key={index} {...search} />
             ))}
@@ -207,7 +207,7 @@ const Index = () => {
           <SectionHeader 
             title="Gear We Think You'll Like"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+          <div className="product-grid-lg">
             {watchListProducts.slice(0, 6).map((product, index) => (
               <ProductCard key={index} {...product} />
             ))}
@@ -219,7 +219,7 @@ const Index = () => {
           <SectionHeader 
             title="Deals & Steals"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+          <div className="product-grid-lg">
             {watchListProducts.map((product, index) => (
               <ProductCard 
                 key={index} 
@@ -236,7 +236,7 @@ const Index = () => {
           <SectionHeader 
             title="Listings in the United Kingdom"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+          <div className="product-grid-lg">
             {feedProducts.concat(watchListProducts.slice(0, 3)).map((product, index) => (
               <ProductCard key={index} {...product} />
             ))}
@@ -249,7 +249,7 @@ const Index = () => {
             title="Just listed Electric guitars"
             subtitle="New arrivals →"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="product-grid">
             {watchListProducts.filter((_, index) => index % 2 === 0).map((product, index) => (
               <ProductCard key={index} {...product} condition="New" />
             ))}

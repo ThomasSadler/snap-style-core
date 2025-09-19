@@ -19,16 +19,16 @@ const SectionHeader = ({
   return (
     <div className={`section-header ${className}`}>
       <div>
-        <h2 className="text-2xl font-bold mb-1">{title}</h2>
+        <h2 className="text-3xl font-bold mb-2">{title}</h2>
         {subtitle && (
-          <p className="text-muted-foreground text-sm">{subtitle}</p>
+          <p className="text-muted-foreground text-base">{subtitle}</p>
         )}
       </div>
       
       {showSeeMore && (
-        <button className="flex items-center gap-1 text-primary hover:text-primary-hover font-medium text-sm transition-colors">
+        <button className="flex items-center gap-1 text-primary hover:text-primary-hover font-semibold text-base transition-colors group">
           {seeMoreText}
-          <ChevronRight className="h-4 w-4" />
+          <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
         </button>
       )}
     </div>

@@ -28,21 +28,21 @@ const ProductCard = ({
   className = "" 
 }: ProductCardProps) => {
   return (
-    <div className={`bg-card border border-card-border rounded-lg overflow-hidden hover:shadow-[var(--shadow-card-hover)] transition-all duration-200 group ${className}`}>
+    <div className={`bg-card border border-card-border rounded-lg overflow-hidden hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 group cursor-pointer ${className}`}>
       {/* Image container */}
       <div className="relative aspect-square bg-muted">
         <img 
           src={image} 
           alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
         />
         
         {/* Watch button */}
         <Button
           variant="ghost"
           size="sm"
-          className={`absolute top-2 right-2 h-8 w-8 p-0 rounded-full bg-background/80 hover:bg-background ${
-            isWatched ? 'text-destructive' : 'text-muted-foreground'
+          className={`absolute top-3 right-3 h-8 w-8 p-0 rounded-full bg-background/90 hover:bg-background shadow-sm ${
+            isWatched ? 'text-destructive' : 'text-muted-foreground hover:text-foreground'
           }`}
         >
           <Heart className={`h-4 w-4 ${isWatched ? 'fill-current' : ''}`} />
@@ -50,7 +50,7 @@ const ProductCard = ({
 
         {/* Condition badge */}
         {condition && (
-          <div className="absolute top-2 left-2 bg-background/90 px-2 py-1 rounded text-xs font-medium">
+          <div className="absolute top-3 left-3 bg-background/95 px-2 py-1 rounded text-xs font-semibold shadow-sm">
             {condition}
           </div>
         )}
@@ -58,12 +58,12 @@ const ProductCard = ({
 
       {/* Content */}
       <div className="p-4">
-        <h3 className="font-medium text-sm mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+        <h3 className="font-medium text-sm mb-3 line-clamp-2 leading-tight group-hover:text-primary transition-colors">
           {title}
         </h3>
         
-        <div className="flex items-center gap-2 mb-2">
-          <span className="font-bold text-lg">{price}</span>
+        <div className="flex items-baseline gap-2 mb-3">
+          <span className="font-bold text-lg text-foreground">{price}</span>
           {originalPrice && (
             <span className="text-sm text-muted-foreground line-through">
               {originalPrice}
@@ -72,25 +72,25 @@ const ProductCard = ({
         </div>
 
         {/* Seller info */}
-        <div className="text-xs text-muted-foreground mb-2">
-          <div className="flex items-center gap-1 mb-1">
-            <span className="font-medium text-foreground">{seller}</span>
+        <div className="text-xs text-muted-foreground space-y-1 mb-4">
+          <div className="flex items-center justify-between">
+            <span className="font-semibold text-foreground text-sm">{seller}</span>
             {rating && (
               <div className="flex items-center gap-1">
                 <Star className="h-3 w-3 fill-primary text-primary" />
-                <span>{rating}</span>
+                <span className="font-medium">{rating}</span>
               </div>
             )}
           </div>
-          {location && <div>{location}</div>}
+          {location && <div className="text-xs">{location}</div>}
         </div>
 
-        {/* Action buttons */}
-        <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-          <Button size="sm" className="btn-primary flex-1 text-xs">
+        {/* Action buttons - Show on hover */}
+        <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+          <Button size="sm" className="btn-primary flex-1 text-xs font-semibold py-2">
             Make Offer
           </Button>
-          <Button variant="outline" size="sm" className="flex-1 text-xs">
+          <Button variant="outline" size="sm" className="flex-1 text-xs font-semibold py-2 border-card-border hover:border-primary">
             Add to Cart
           </Button>
         </div>

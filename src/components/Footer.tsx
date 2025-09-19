@@ -51,19 +51,19 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-foreground text-background mt-16">
-      <div className="container mx-auto px-4 py-12">
+    <footer className="bg-foreground text-background mt-20">
+      <div className="container mx-auto px-4 py-16">
         {/* Main footer content */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
           {footerSections.map((section, index) => (
             <div key={index}>
-              <h4 className="font-semibold mb-4 text-background">{section.title}</h4>
-              <ul className="space-y-2">
+              <h4 className="font-bold mb-6 text-background text-lg">{section.title}</h4>
+              <ul className="space-y-3">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
                     <a 
                       href="#" 
-                      className="text-background/70 hover:text-background text-sm transition-colors"
+                      className="text-background/80 hover:text-background text-base transition-colors hover:underline"
                     >
                       {link}
                     </a>
@@ -75,19 +75,19 @@ const Footer = () => {
         </div>
 
         {/* Newsletter signup */}
-        <div className="border-t border-background/20 pt-8 mb-8">
-          <div className="max-w-md">
-            <h4 className="font-semibold mb-2 text-background">Get the best of Reverb in your inbox</h4>
-            <p className="text-background/70 text-sm mb-4">
+        <div className="border-t border-background/20 pt-12 mb-12">
+          <div className="max-w-lg">
+            <h4 className="font-bold mb-3 text-background text-xl">Get the best of Reverb in your inbox</h4>
+            <p className="text-background/80 text-base mb-6 leading-relaxed">
               Subscribe to our newsletter for news about new features, artists, and more.
             </p>
-            <div className="flex gap-2">
+            <div className="flex gap-3">
               <input 
                 type="email" 
                 placeholder="Enter your email"
-                className="flex-1 px-3 py-2 rounded text-foreground text-sm"
+                className="flex-1 px-4 py-3 rounded-lg text-foreground text-base border-0 focus:ring-2 focus:ring-primary"
               />
-              <button className="btn-primary px-6 py-2 text-sm font-medium rounded">
+              <button className="btn-primary px-8 py-3 text-base font-bold rounded-lg whitespace-nowrap">
                 Subscribe
               </button>
             </div>
@@ -95,19 +95,19 @@ const Footer = () => {
         </div>
 
         {/* Bottom section */}
-        <div className="border-t border-background/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-4">
-            <span className="text-background font-bold text-xl">Reverb</span>
-            <div className="flex items-center gap-4">
-              <Facebook className="h-5 w-5 text-background/70 hover:text-background cursor-pointer transition-colors" />
-              <Twitter className="h-5 w-5 text-background/70 hover:text-background cursor-pointer transition-colors" />
-              <Instagram className="h-5 w-5 text-background/70 hover:text-background cursor-pointer transition-colors" />
-              <Youtube className="h-5 w-5 text-background/70 hover:text-background cursor-pointer transition-colors" />
-              <Linkedin className="h-5 w-5 text-background/70 hover:text-background cursor-pointer transition-colors" />
+        <div className="border-t border-background/20 pt-12 flex flex-col lg:flex-row justify-between items-center gap-8">
+          <div className="flex items-center gap-8">
+            <span className="text-background font-bold text-3xl">Reverb</span>
+            <div className="flex items-center gap-6">
+              <Facebook className="h-6 w-6 text-background/70 hover:text-background cursor-pointer transition-colors" />
+              <Twitter className="h-6 w-6 text-background/70 hover:text-background cursor-pointer transition-colors" />
+              <Instagram className="h-6 w-6 text-background/70 hover:text-background cursor-pointer transition-colors" />
+              <Youtube className="h-6 w-6 text-background/70 hover:text-background cursor-pointer transition-colors" />
+              <Linkedin className="h-6 w-6 text-background/70 hover:text-background cursor-pointer transition-colors" />
             </div>
           </div>
           
-          <div className="text-background/70 text-sm">
+          <div className="text-background/70 text-base">
             © 2024 Reverb.com LLC. All rights reserved.
           </div>
         </div>

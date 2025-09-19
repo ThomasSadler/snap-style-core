@@ -139,126 +139,80 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <Header />
+    <div className="min-h-screen bg-background p-8">
+      <div className="max-w-6xl mx-auto space-y-16">
+        
+        {/* Header Component */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold text-foreground">Header Component</h2>
+          <div className="border border-border rounded-lg overflow-hidden">
+            <Header />
+          </div>
+        </div>
 
-      {/* Hero Section */}
-      <HeroBanner 
-        title="Lower fees. Better tools."
-        description="It's a new day for UK sellers"
-        buttonText="Check it out"
-        images={heroImages}
-      />
+        {/* Hero Banner Component */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold text-foreground">Hero Banner Component</h2>
+          <div className="border border-border rounded-lg overflow-hidden">
+            <HeroBanner 
+              title="Lower fees. Better tools."
+              description="It's a new day for UK sellers"
+              buttonText="Check it out"
+              images={heroImages}
+            />
+          </div>
+        </div>
 
-      <main className="container mx-auto px-4 py-16 space-y-20">
-        {/* Watch List Section */}
-        <section>
-          <SectionHeader 
-            title="From your watch list"
-            subtitle="You liked this →"
-          />
-          <div className="product-grid">
-            {watchListProducts.map((product, index) => (
+        {/* Section Header Component */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold text-foreground">Section Header Component</h2>
+          <div className="p-6 border border-border rounded-lg">
+            <SectionHeader 
+              title="From your watch list"
+              subtitle="You liked this →"
+            />
+          </div>
+        </div>
+
+        {/* Product Card Component */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold text-foreground">Product Card Component</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 border border-border rounded-lg">
+            {watchListProducts.slice(0, 3).map((product, index) => (
               <ProductCard key={index} {...product} />
             ))}
           </div>
-        </section>
+        </div>
 
-        {/* Feed Section */}
-        <section>
-          <SectionHeader 
-            title="From Your Feed"
-          />
-          <div className="product-grid-lg">
-            {feedProducts.map((product, index) => (
-              <ProductCard key={index} {...product} />
-            ))}
-          </div>
-        </section>
-
-        {/* Stories Section */}
-        <section>
-          <SectionHeader 
-            title="The Top Stories"
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Story Card Component */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold text-foreground">Story Card Component</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 border border-border rounded-lg">
             {stories.map((story, index) => (
               <StoryCard key={index} {...story} />
             ))}
           </div>
-        </section>
+        </div>
 
-        {/* Recent Searches */}
-        <section>
-          <SectionHeader 
-            title="Your recent searches"
-            showSeeMore={false}
-          />
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
+        {/* Search Result Card Component */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold text-foreground">Search Result Card Component</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 border border-border rounded-lg">
             {recentSearches.map((search, index) => (
               <SearchResultCard key={index} {...search} />
             ))}
           </div>
-        </section>
+        </div>
 
-        {/* Recommended Products */}
-        <section>
-          <SectionHeader 
-            title="Gear We Think You'll Like"
-          />
-          <div className="product-grid-lg">
-            {watchListProducts.slice(0, 6).map((product, index) => (
-              <ProductCard key={index} {...product} />
-            ))}
+        {/* Footer Component */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold text-foreground">Footer Component</h2>
+          <div className="border border-border rounded-lg overflow-hidden">
+            <Footer />
           </div>
-        </section>
+        </div>
 
-        {/* Deals Section */}
-        <section>
-          <SectionHeader 
-            title="Deals & Steals"
-          />
-          <div className="product-grid-lg">
-            {watchListProducts.map((product, index) => (
-              <ProductCard 
-                key={index} 
-                {...product} 
-                originalPrice={product.price}
-                price={`£${Math.round(parseFloat(product.price.replace(/[£,]/g, '')) * 0.8).toLocaleString()}.00`}
-              />
-            ))}
-          </div>
-        </section>
-
-        {/* Listings Section */}
-        <section>
-          <SectionHeader 
-            title="Listings in the United Kingdom"
-          />
-          <div className="product-grid-lg">
-            {feedProducts.concat(watchListProducts.slice(0, 3)).map((product, index) => (
-              <ProductCard key={index} {...product} />
-            ))}
-          </div>
-        </section>
-
-        {/* Just Listed Section */}
-        <section>
-          <SectionHeader 
-            title="Just listed Electric guitars"
-            subtitle="New arrivals →"
-          />
-          <div className="product-grid">
-            {watchListProducts.filter((_, index) => index % 2 === 0).map((product, index) => (
-              <ProductCard key={index} {...product} condition="New" />
-            ))}
-          </div>
-        </section>
-      </main>
-
-      {/* Footer */}
-      <Footer />
+      </div>
     </div>
   );
 };
